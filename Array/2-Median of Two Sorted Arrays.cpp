@@ -17,7 +17,7 @@ public:
      * If we can find the Kth number in an ordered array, problem solved.
      * Assume we have two arrays, A and B.
      * If A[k / 2] > B[k / 2] or (k / 2) is greater than the length of A, Kth number must not be in the front (k / 2) of B,
-     * so we can delete the front (k / 2) numbers of B and find the (k - k / 2)th number in the remaining arrays.
+     * so we can delete the front (k / 2) numbers of B and find the (k - k / 2)th number in the remaining arrays, and vice versa.
      */
     double findKth(vector<int>& A, vector<int>& B, int indexA, int indexB, int k) {
         if(indexA >= A.size()) {
