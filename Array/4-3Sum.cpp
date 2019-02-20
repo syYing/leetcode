@@ -27,19 +27,21 @@ public:
                 continue;
             }
             int start = i + 1, end = nums.size() - 1;
-            int sum = nums[i] + nums[start] + nums[end];
-            if(start > i + 1 && nums[start] == nums[start - 1]) {
-                start++;
-                continue;
-            }
-            if(sum > 0) {
-                end--;
-            } else if(sum < 0) {
-                start++;
-            } else {
-                vector<int> triplet {nums[i], nums[start], nums[end]};
-                res.push_back(triplet);
-                start++;
+            while(start < end) {
+                if(start > i + 1 && nums[start] == nums[start - 1]) {
+                    start++;
+                    continue;
+                }
+                int sum = nums[i] + nums[start] + nums[end];
+                if(sum > 0) {
+                    end--;
+                } else if(sum < 0) {
+                    start++;
+                } else {
+                    vector<int> triplet {nums[i], nums[start], nums[end]};
+                    res.push_back(triplet);
+                    start++;
+                }
             }
         }
         return res;
