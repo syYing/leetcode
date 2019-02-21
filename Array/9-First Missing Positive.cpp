@@ -18,6 +18,10 @@ public:
      */
     int firstMissingPositive(vector<int>& nums) {
         for(int i = 0; i < nums.size(); i++) {
+            // exchange conditions:
+            // 1: nums[i] is in the range;
+            // 2: nums[i] > 0;
+            // 3: The target is different;
             while(nums[i] > 0 && nums[i] <= nums.size() && nums[nums[i] - 1] != nums[i]) {
                 swap(nums[nums[i] - 1], nums[i]);
             }
